@@ -1,0 +1,268 @@
+--MADE BY frogo#8116 Get Huge Simulator -------https://www.roblox.com/games/4032944086/3X-EVENT-Get-Huge-Simulator
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("Get Huge Simulator X", "DarkTheme")
+
+local Tab = Window:NewTab("Main")
+local MainSection = Tab:NewSection("Main")
+
+local Tab = Window:NewTab("Teleport")
+local TpSection = Tab:NewSection("Teleport")
+
+local Tab = Window:NewTab("Universal")
+local UniversalSection = Tab:NewSection("Universal")
+
+local Tab = Window:NewTab("Credits")
+local CredsSection = Tab:NewSection("Credits")
+
+MainSection:NewButton("AutoTap True", "Auto Tap Retard", function()
+    getgenv().autotap = true;
+    --Auto Tap
+spawn(function()
+    while autotap do
+        print "ello"
+game:GetService("ReplicatedStorage").Remotes.LiftWeight:FireServer()
+            wait()
+        end
+end)
+end)
+
+MainSection:NewButton("AutoTap false", "Auto Tap Retard", function()
+    getgenv().autotap = false;
+end)
+
+MainSection:NewButton("AutoSell true", "Auto Sell Retard", function()
+    getgenv().autosell = true;
+    --autosell
+
+spawn(function()
+    while autosell do
+        print "sell"
+        teleportworld()
+        wait(2)
+        teleportworld1()
+        wait(2)
+    end
+end)
+
+end)
+
+MainSection:NewButton("AutoSell false", "Auto Sell Retard", function()
+    getgenv().autosell = false;
+end)
+
+MainSection:NewButton("Rice-Anti-Afk", "You Need This On", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/KazeOnTop/Rice-Anti-Afk/main/Wind", true))()
+end)
+
+MainSection:NewButton("AutoHit True", "Auto Hit Retard", function()
+    getgenv().autoHit = true;
+    --Auto Hit
+spawn(function()
+    while autoHit do
+local args = {
+    [1] = "Punch",
+    [2] = 2
+}
+
+game:GetService("ReplicatedStorage").Remotes.PVP.AttackAttempt:FireServer(unpack(args))
+
+            wait()
+        end
+end)
+end)
+
+MainSection:NewButton("AutoHit false", "Auto Hit Retard", function()
+    getgenv().autoHit = false;
+end)
+
+TpSection:NewButton("GemFarm", "Farm", function()
+    getgenv().Gems = true;
+    spawn(function()
+    while Gems do
+        print "Gems"
+        teleportworld3()
+        wait(16)
+                teleportworld4()
+        wait(16)
+                teleportworld5()
+        wait(16)
+                teleportworld6()
+        wait(16)
+    end
+end)
+    end)
+
+TpSection:NewButton("GemFarm Off", "Farm", function()
+    getgenv().Gems = false;
+end)
+
+
+UniversalSection:NewSlider("WalkSpeed", "Zooooooooooom", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+UniversalSection:NewButton("Auto Clicker", "Brrrrrrr", function()
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/JustEzpi/ROBLOX-Scripts/main/ROBLOX_AutoClicker"))()
+end)
+
+UniversalSection:NewButton("INF Yield", "Admin", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+UniversalSection:NewButton("INF HEALTH", "INF HEALTH", function()
+    if game.Workspace.FilteringEnabled == false then
+game.Players.LocalPlayer.Character.Humanoid.MaxHealth = 0
+end
+if game.Workspace.FilteringEnabled == true then
+local player=game.Players.LocalPlayer.Character
+player.Humanoid:Remove()
+Instance.new('Humanoid',player)
+end
+end)
+
+UniversalSection:NewButton("INF Jump True", "Jump Fly", function()
+   local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+local InfiniteJump = CreateButton("Infinite Jump: Off", StuffFrame)
+InfiniteJump.Position = UDim2.new(0,10,0,130)
+InfiniteJump.Size = UDim2.new(0,150,0,30)
+InfiniteJump.MouseButton1Click:connect(function()
+	local state = InfiniteJump.Text:sub(string.len("Infinite Jump: ") + 1) --too lazy to count lol
+	local new = state == "Off" and "On" or state == "On" and "Off"
+	InfiniteJumpEnabled = new == "On"
+	InfiniteJump.Text = "Infinite Jump: " .. new
+end)
+end)
+
+UniversalSection:NewButton("INF Jump False", "Jump Fly", function()
+   local InfiniteJumpEnabled = false
+end)
+
+UniversalSection:NewButton("Anti AFK", "ANTI AFK", function()
+local Module = require(game:GetService("Players").LocalPlayer.PlayerScripts.ClientMain.Replications.Workers.WalkDummy)
+setconstant(Module,34,function()
+   game:GetService("RunService").Heartbeat:Wait()
+end)
+end)
+
+
+
+UniversalSection:NewKeybind("Toggle UI", "Click L", Enum.KeyCode.L, function()
+	Library:ToggleUI()
+end)
+
+CredsSection:NewLabel("Made By frogo#8116")
+
+TpSection:NewButton("Safe Area", "Tp to Safe Area", function()
+    teleportworld1()
+end)
+
+TpSection:NewButton("Shop", "Tp to shop", function()
+    teleportworld2()
+end)
+
+TpSection:NewButton("T2", "Tp to T2", function()
+    teleportworld3()
+end)
+
+TpSection:NewButton("T1", "Tp to T1", function()
+    teleportworld4()
+end)
+
+TpSection:NewButton("T3", "Tp to T3", function()
+    teleportworld5()
+end)
+
+TpSection:NewButton("T5", "Tp to T5", function()
+    teleportworld6()
+end)
+
+TpSection:NewButton("IceBoss", "Tp to IceBoss", function()
+    getgenv().IceBoss = true;
+    spawn(function()
+        while IceBoss do
+    teleportworld7()
+    Wait()
+end
+end)
+end)
+
+TpSection:NewButton("IceBoss Stop", "Tp to IceBoss Stop", function()
+    getgenv().IceBoss = false;
+end)
+
+-- Teleport
+function getCurrentPlayerPOS()
+    local plyr = game.Players.LocalPlayer;
+    if plyr.Character then
+        return plyr.Character.HumanoidRootPart.Position;
+    end
+    return false;
+end
+
+function teleportto(placeCFrame)
+    local plyr = game.Players.LocalPlayer;
+    if plyr.Character then
+        plyr.Character.HumanoidRootPart.CFrame = placeCFrame;
+    end
+end
+
+function teleportworld()
+    if game:GetService("Workspace").RingAreas.RangeSystem.Server.Sell then
+        teleportto(game:GetService("Workspace").RingAreas.RangeSystem.Server.Sell.CFrame)
+
+    end
+end
+--------------------------------------------
+function teleportworld1()
+    if game:GetService("Workspace").RingAreas.RangeSystem.Server.SafeArea then
+        teleportto(game:GetService("Workspace").RingAreas.RangeSystem.Server.SafeArea.CFrame)
+
+    end
+end
+--------------------------------------------
+function teleportworld2()
+    if game:GetService("Workspace").Mainland.Buildings["ShopDecoration_new"]["Circle_Mesh"] then
+        teleportto(game:GetService("Workspace").Mainland.Buildings["ShopDecoration_new"]["Circle_Mesh"].CFrame)
+
+    end
+end
+--------------------------------------------
+function teleportworld3()
+    if game:GetService("Workspace").RingAreas.Territories.T2 then
+        teleportto(game:GetService("Workspace").RingAreas.Territories.T2.CFrame)
+
+    end
+end
+--------------------------------------------
+function teleportworld4()
+    if game:GetService("Workspace").RingAreas.Territories.T1 then
+        teleportto(game:GetService("Workspace").RingAreas.Territories.T1.CFrame)
+
+    end
+end
+--------------------------------------------
+function teleportworld5()
+    if game:GetService("Workspace").RingAreas.Territories.T3 then
+        teleportto(game:GetService("Workspace").RingAreas.Territories.T3.CFrame)
+
+    end
+end
+--------------------------------------------
+function teleportworld6()
+    if game:GetService("Workspace").RingAreas.Territories.T5 then
+        teleportto(game:GetService("Workspace").RingAreas.Territories.T5.CFrame)
+    end
+end
+--------------------------------------------
+function teleportworld7()
+    if game:GetService("Workspace").BossModels.Ice.UpperTorso then
+        teleportto(game:GetService("Workspace").BossModels.Ice.UpperTorso.CFrame)
+    end
+end
